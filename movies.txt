@@ -1,0 +1,32 @@
+from myapp.models import Movie
+Movie.objects.create(name="ozler",language="malayalam",runtime=120,genre="Thriller",director="midhun",year=2024,actors="jayaram")
+Movie.objects.create(name="neru",language="malayalam",runtime=100,genre="action",director="joseph",year=2023,actors="mohanlal")
+Movie.objects.create(name="jawan",language="hindi",runtime=150,genre="action",director="atlee",year=2024,actors="shahrukh")
+Movie.objects.create(name="jailer",language="tamil",runtime=130,genre="comedy",director="nelson",year=2024,actors="jayaram")
+Movie.objects.create(name="neram",language="malayalam",runtime=170,genre="Thriller",director="midhun",year=2024,actors="nivinpauly")
+
+
+-> to update the values
+
+Movie.objects.filter(id=3).update(genre="romance",year=2023)
+
+-> to delete the values
+
+Movie.objects.filter(id=1).delete()
+
+-> field lookup
+
+Movie.objects.filter(year<2024)
+qs=Movie.objects.filter(year__lt=2024)
+
+symbols 
+
+<   __lt
+<=  __lte
+>   __gt
+>=  __gte
+
+-> to exclude 
+
+qs=Movie.objects.exclude(language="malayalam")
+
